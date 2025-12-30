@@ -1,12 +1,14 @@
 package com.example.demo_app.service;
 
-import org.springframework.context.annotation.Primary;
+import com.example.demo_app.model.Laptop;
+import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@Primary
+
 @Service("mobileService")
 public class MobileService implements Device{
 
@@ -55,5 +57,10 @@ public class MobileService implements Device{
         }
         System.out.println("Email sent via mobile service-2");
         return CompletableFuture.completedFuture("Email sent successfully via mobile service");
+    }
+
+    @Override
+    public List<Laptop> getAllLaptop(int page, int size, Sort by) {
+        return List.of();
     }
 }
